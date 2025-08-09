@@ -28,6 +28,7 @@
             color: var(--text);
             background-color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         h1, h2, h3 {
@@ -42,7 +43,7 @@
             background-position: center;
             color: var(--white);
             text-align: center;
-            padding: 5rem 2rem;
+            padding: 3rem 1rem;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -55,51 +56,54 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
         
         .logo {
-            height: 150px;
-            width: auto;
+            height: auto;
+            max-width: 120px;
             filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
         }
         
         header h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--white);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             letter-spacing: 1px;
+            padding: 0 1rem;
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             max-width: 800px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2rem;
             opacity: 0.9;
+            padding: 0 1rem;
         }
         
         .scroll-down {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             color: var(--white);
-            font-size: 2.5rem;
+            font-size: 2rem;
             animation: bounce 2s infinite;
         }
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-20px) translateX(-50%); }
-            60% { transform: translateY(-10px) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
         }
         
         /* Navigation */
         nav {
             background-color: var(--dark);
-            padding: 1.5rem;
+            padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -110,7 +114,7 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            gap: 3rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
         }
         
@@ -118,12 +122,19 @@
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            padding: 0.8rem 1.2rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav a i {
+            margin-right: 5px;
+            font-size: 0.9rem;
         }
         
         nav a:hover {
@@ -133,7 +144,7 @@
         
         /* Sections */
         section {
-            padding: 6rem 2rem;
+            padding: 3rem 1rem;
             position: relative;
             overflow: hidden;
         }
@@ -143,8 +154,8 @@
             margin: 0 auto;
             position: relative;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
         
         section.visible .section-content {
@@ -153,20 +164,21 @@
         }
         
         section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--secondary);
             position: relative;
             display: inline-block;
+            padding: 0 1rem;
         }
         
         section h2::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 80px;
-            height: 4px;
+            bottom: -10px;
+            left: 1rem;
+            width: 60px;
+            height: 3px;
             background-color: var(--accent);
             border-radius: 2px;
         }
@@ -177,38 +189,40 @@
         }
         
         .intro-text {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
         }
         
         /* Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 4rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 2rem 0;
+            padding: 0 1rem;
         }
         
         .gallery-item {
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             aspect-ratio: 1/1;
             background-color: var(--white);
         }
         
         .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
         
         .gallery-item:hover img {
@@ -222,9 +236,10 @@
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: var(--white);
-            padding: 2rem 1.5rem 1rem;
+            padding: 1rem 0.8rem 0.5rem;
             transform: translateY(100%);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
         }
         
         .gallery-item:hover .gallery-caption {
@@ -235,133 +250,151 @@
         .timeline {
             position: relative;
             max-width: 900px;
-            margin: 4rem auto;
-            padding-left: 50px;
+            margin: 2rem auto;
+            padding-left: 30px;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            width: 4px;
+            width: 3px;
             background: linear-gradient(to bottom, var(--primary), var(--secondary));
             top: 0;
             bottom: 0;
-            left: 20px;
+            left: 15px;
         }
         
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
-            padding-left: 30px;
+            margin-bottom: 2rem;
+            padding-left: 20px;
         }
         
         .timeline-dot {
             position: absolute;
-            left: 12px;
-            width: 20px;
-            height: 20px;
+            left: 8px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background-color: var(--accent);
-            border: 4px solid var(--primary);
+            border: 3px solid var(--primary);
         }
         
         .timeline-content {
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
         }
         
         .timeline-date {
             font-weight: bold;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
+            font-size: 0.9rem;
         }
         
         .timeline-date i {
-            margin-right: 10px;
+            margin-right: 8px;
             color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content p {
+            font-size: 0.9rem;
         }
         
         /* Steps */
         .steps-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            justify-content: center;
-            margin: 4rem 0;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 0 1rem;
         }
         
         .step-card {
-            flex: 1;
-            min-width: 280px;
-            max-width: 320px;
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             text-align: center;
-            transition: all 0.4s ease;
-            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--accent);
         }
         
         .step-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             background-color: var(--primary);
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1rem;
             font-family: 'Playfair Display', serif;
+        }
+        
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .step-card p {
+            font-size: 0.9rem;
         }
         
         /* Cards */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin: 4rem 0;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 0 1rem;
         }
         
         .card {
             background-color: var(--white);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         
         .card img {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
         }
         
         .card-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
         
         .card h3 {
             color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .card p {
+            font-size: 0.9rem;
         }
         
         /* Footer */
@@ -369,12 +402,12 @@
             background-color: var(--dark);
             color: var(--white);
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2rem 1rem;
         }
         
         .footer-logo {
-            height: 80px;
-            margin-bottom: 2rem;
+            height: 60px;
+            margin-bottom: 1.5rem;
         }
         
         .footer-content {
@@ -382,53 +415,107 @@
             margin: 0 auto;
         }
         
+        .footer-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-content p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
         
         .social-links a {
             color: var(--white);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
         }
         
         .social-links a:hover {
             color: var(--accent);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .back-to-top {
             display: inline-block;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: var(--white);
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 2rem;
+            margin-top: 1rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.8rem;
         }
         
         .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+            touch-action: manipulation;
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: transparent;
+            margin: 10% auto;
+            padding: 15px;
+            width: 95%;
+            max-width: 800px;
+        }
+        
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 5px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: var(--accent);
+        }
+        
+        #kainVideo {
+            width: 100%;
+            outline: none;
+            border-radius: 8px;
+        }
+        
+        /* Responsive for tablets */
+        @media (min-width: 600px) {
             header h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
             .logo {
-                height: 70px;
+                max-width: 150px;
             }
             
             nav ul {
@@ -436,8 +523,8 @@
             }
             
             nav a {
-                padding: 0.6rem 0.8rem;
-                font-size: 0.9rem;
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
             }
             
             section {
@@ -448,8 +535,91 @@
                 font-size: 2.2rem;
             }
             
-            .timeline {
-                padding-left: 30px;
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .step-card {
+                min-width: 200px;
+                flex: 1;
+            }
+        }
+        
+        /* Responsive for desktop */
+        @media (min-width: 900px) {
+            header {
+                padding: 5rem 2rem;
+            }
+            
+            header h1 {
+                font-size: 3.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            .logo-container {
+                gap: 3rem;
+            }
+            
+            .logo {
+                max-width: 180px;
+            }
+            
+            nav ul {
+                gap: 2rem;
+            }
+            
+            section {
+                padding: 5rem 2rem;
+            }
+            
+            section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 25px;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .steps-container {
+                gap: 2rem;
+            }
+            
+            .step-card {
+                padding: 2rem;
+            }
+            
+            .card img {
+                height: 220px;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                padding: 20px;
+            }
+        }
+        
+        /* Prevent zooming on input focus on mobile */
+        @media screen and (max-width: 600px) {
+            input, select, textarea {
+                font-size: 16px;
             }
         }
     </style>
@@ -504,239 +674,167 @@
                 </div>
             </div>
             
-<div class="card-grid">
-    <div class="card">
-        <div class="card-content">
-            <h3>Soft & Comfortable</h3>
-            <p>Made from cool cotton that's perfect for hot weather.</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-            <h3>Colorful Checks</h3>
-            <p>Bright patterns that show local culture and style.</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-            <h3>Just Right Size</h3>
-            <p>Long enough (2-2.5m) to wear in different ways.</p>
-        </div>
-    </div>
-</div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Soft & Comfortable</h3>
+                        <p>Made from cool cotton that's perfect for hot weather.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Colorful Checks</h3>
+                        <p>Bright patterns that show local culture and style.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Just Right Size</h3>
+                        <p>Long enough (2-2.5m) to wear in different ways.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
     <!-- History Section -->
     <section id="history" style="background-color: var(--light);">
-<div class="section-content">
-    <h2>History of Kain Pelikat</h2>
-    <p>See how this sarong changed over time:</p>
-    
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <div class="timeline-date"><i class="fas fa-anchor"></i> 1400s-1700s</div>
-                <p>First came from India with traders. Sailors wore it for work.</p>
+        <div class="section-content">
+            <h2>History of Kain Pelikat</h2>
+            <p>See how this sarong changed over time:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-anchor"></i> 1400s-1700s</div>
+                        <p>First came from India with traders. Sailors wore it for work.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-exchange-alt"></i> 1800s</div>
+                        <p>Local makers added Malay patterns and colors.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-home"></i> Early 1900s</div>
+                        <p>Became everyday clothing for many families.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-tshirt"></i> Today</div>
+                        <p>Still worn traditionally, now also used in modern fashion.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <div class="timeline-date"><i class="fas fa-exchange-alt"></i> 1800s</div>
-                <p>Local makers added Malay patterns and colors.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <div class="timeline-date"><i class="fas fa-home"></i> Early 1900s</div>
-                <p>Became everyday clothing for many families.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <div class="timeline-date"><i class="fas fa-tshirt"></i> Today</div>
-                <p>Still worn traditionally, now also used in modern fashion.</p>
-            </div>
-        </div>
-    </div>
-</div>
     </section>
     
     <!-- Culture Section -->
     <section id="culture" style="background-color: var(--white);">
-<div class="section-content">
-    <h2>Why Kain Pelikat Matters</h2>
-    <p>How people use this special sarong:</p>
-    
-    <div class="card-grid">
-        <div class="card">
-            <img src="image/s1.png" alt="Prayer clothing">
-            <div class="card-content">
-                <h3>For Prayers</h3>
-                <p>Muslims wear it during prayer because it's simple and respectful.</p>
+        <div class="section-content">
+            <h2>Why Kain Pelikat Matters</h2>
+            <p>How people use this special sarong:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <img src="image/s1.png" alt="Prayer clothing">
+                    <div class="card-content">
+                        <h3>For Prayers</h3>
+                        <p>Muslims wear it during prayer because it's simple and respectful.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="image/s2.png" alt="Home clothing">
+                    <div class="card-content">
+                        <h3>At Home</h3>
+                        <p>People love wearing it at home - it's cool and comfortable.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="image/s4.png" alt="Special events">
+                    <div class="card-content">
+                        <h3>For Special Days</h3>
+                        <p>Worn at weddings and festivals to show Malay culture.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <img src="image/s2.png" alt="Home clothing">
-            <div class="card-content">
-                <h3>At Home</h3>
-                <p>People love wearing it at home - it's cool and comfortable.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="image/s4.png" alt="Special events">
-            <div class="card-content">
-                <h3>For Special Days</h3>
-                <p>Worn at weddings and festivals to show Malay culture.</p>
-            </div>
-        </div>
-    </div>
-</div>
     </section>
     
-<!-- How to Wear Section -->
-<section id="how-to-wear" style="background-color: var(--light);">
-    <div class="section-content">
-        <h2>Master the Art of Wearing</h2>
-        <p>Learn the proper techniques to wear your Kain Pelikat with confidence and style.</p>
-        
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Prepare the Fabric</h3>
-                <p>Unfold completely and hold horizontally behind you at waist level, ensuring equal length on both sides.</p>
+    <!-- How to Wear Section -->
+    <section id="how-to-wear" style="background-color: var(--light);">
+        <div class="section-content">
+            <h2>How to Wear Kain Pelikat</h2>
+            <p>Follow these easy steps to wear your sarong:</p>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Unfold</h3>
+                    <p>Open the fabric and hold it behind you at waist level.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Wrap</h3>
+                    <p>Bring both ends to the front and cross them.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Secure</h3>
+                    <p>Fold the top edge down to keep it in place.</p>
+                </div>
             </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>Wrap Around</h3>
-                <p>Bring both ends to the front, crossing them slightly at your waist for a secure fit.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>Secure the Fold</h3>
-                <p>Roll the top edge down about 2-3 inches to create a tight, comfortable waistband that stays in place.</p>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="videoBtn" class="back-to-top"><i class="fas fa-play-circle"></i> Watch Video Tutorial</button>
             </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 3rem;">
-            <button id="videoBtn" class="back-to-top"><i class="fas fa-play-circle"></i> Watch Video Tutorial</button>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <video id="kainVideo" controls playsinline>
+                    <source src="image/kain.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-    </div>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <video id="kainVideo" controls>
-                <source src="image/kain.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</section>
-
-<style>
-    /* Modal Styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.8);
-        overflow: auto;
-    }
-
-    .modal-content {
-        position: relative;
-        background-color: transparent;
-        margin: 5% auto;
-        padding: 20px;
-        width: 80%;
-        max-width: 800px;
-    }
-
-    .close {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        color: white;
-        font-size: 35px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover {
-        color: var(--accent);
-    }
-
-    #kainVideo {
-        width: 100%;
-        outline: none;
-        border-radius: 8px;
-    }
-</style>
-
-<script>
-    // Get the modal and button elements
-    const modal = document.getElementById("videoModal");
-    const btn = document.getElementById("videoBtn");
-    const video = document.getElementById("kainVideo");
-    const span = document.getElementsByClassName("close")[0];
-
-    // When user clicks the button, open modal and play video
-    btn.onclick = function() {
-        modal.style.display = "block";
-        video.play();
-    }
-
-    // When user clicks on (x), close modal and pause video
-    span.onclick = function() {
-        modal.style.display = "none";
-        video.pause();
-    }
-
-    // When user clicks anywhere outside modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            video.pause();
-        }
-    }
-</script>
+    </section>
     
     <!-- Modern Uses Section -->
     <section id="modern" style="background-color: var(--white);">
         <div class="section-content">
-            <h2>Contemporary Innovations</h2>
-            <p>Explore how traditional Kain Pelikat inspires modern creativity across various domains.</p>
+            <h2>Modern Uses</h2>
+            <p>See how people use Kain Pelikat today:</p>
             
             <div class="card-grid">
                 <div class="card">
                     <img src="image/ss1.png" alt="Fashion">
                     <div class="card-content">
-                        <h3>High Fashion</h3>
-                        <p>Designers incorporate pelikat patterns into modern apparel, from elegant dresses to stylish shirts.</p>
+                        <h3>Fashion</h3>
+                        <p>Used in modern clothing like dresses and shirts.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="image/ss2.png" alt="Home Decor">
                     <div class="card-content">
                         <h3>Home Decor</h3>
-                        <p>Transformed into curtains, pillow covers, and table runners for cultural-inspired interiors.</p>
+                        <p>Made into curtains, pillows, and table covers.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="image/ss6.png" alt="Art">
                     <div class="card-content">
-                        <h3>Artistic Medium</h3>
-                        <p>Featured in contemporary art installations and textile exhibitions worldwide.</p>
+                        <h3>Art</h3>
+                        <p>Featured in art shows and exhibitions.</p>
                     </div>
                 </div>
             </div>
@@ -755,7 +853,6 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-pinterest"></i></a>
             </div>
             
             <p>&copy; 2023 CultureMates & CultureSeekers. All rights reserved.</p>
@@ -789,9 +886,12 @@
                     const targetElement = document.querySelector(targetId);
                     
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('nav-toggle').checked = false;
                 });
             });
             
@@ -807,6 +907,48 @@
                     }
                 });
             });
+            
+            // Video modal functionality
+            const modal = document.getElementById("videoModal");
+            const btn = document.getElementById("videoBtn");
+            const video = document.getElementById("kainVideo");
+            const span = document.getElementsByClassName("close")[0];
+            
+            btn.onclick = function() {
+                modal.style.display = "block";
+                video.play();
+                document.body.style.overflow = 'hidden';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = "none";
+                video.pause();
+                document.body.style.overflow = 'auto';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    video.pause();
+                    document.body.style.overflow = 'auto';
+                }
+            }
+            
+            // Prevent video from playing in background when modal is closed
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    video.pause();
+                }
+            });
+            
+            // Handle mobile viewport height
+            function setViewportHeight() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setViewportHeight();
+            window.addEventListener('resize', setViewportHeight);
         });
     </script>
 </body>
