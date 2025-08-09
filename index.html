@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kain Pelikat: The Vibrant Sarong of Southeast Asia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B4513;        /* Rich brown */
+            --secondary: #D2691E;      /* Chocolate */
+            --accent: #E6B800;         /* Gold */
+            --light: #F5F5DC;          /* Beige */
+            --dark: #2F4F4F;           /* Dark slate */
+            --text: #333333;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Header with gradient overlay */
+        header {
+            background: linear-gradient(rgba(43, 34, 24, 0.7), rgba(43, 34, 24, 0.7)), url('c1.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            height: 150px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+        }
+        
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        section.visible .section-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: var(--white);
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 4rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            aspect-ratio: 1/1;
+            background-color: var(--white);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 2rem 1.5rem 1rem;
+            transform: translateY(100%);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 4rem auto;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 30px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 4px solid var(--primary);
+        }
+        
+        .timeline-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-date i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        /* Steps */
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin: 4rem 0;
+        }
+        
+        .step-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.4s ease;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .footer-logo {
+            height: 80px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .logo {
+                height: 70px;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            nav a {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="cc.png" alt="CultureMates Logo" class="logo">
+            <img src="uctati.png" alt="CultureSeekers Logo" class="logo">
+        </div>
+        <h1>Kain Pelikat</h1>
+        <p>The Timeless Checkered Sarong of Southeast Asia</p>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
+            <li><a href="#culture"><i class="fas fa-globe-asia"></i> Culture</a></li>
+            <li><a href="#how-to-wear"><i class="fas fa-tshirt"></i> How to Wear</a></li>
+            <li><a href="#modern"><i class="fas fa-star"></i> Modern Uses</a></li>
+        </ul>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-content">
+            <h2>About Kain Pelikat</h2>
+            <p class="intro-text">Kain Pelikat is a traditional checkered sarong widely worn in Malaysia, Indonesia, and Singapore. Known for its bold patterns and lightweight cotton fabric, it is a staple of comfort and cultural identity.</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="my.jpeg" alt="Traditional Pelikat">
+                    <div class="gallery-caption">Traditional Pelikat</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="my1.jpeg" alt="Traditional Pelikat">
+                    <div class="gallery-caption">Traditional Pelikat</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="my2.jpeg" alt="Traditional Pelikat">
+                    <div class="gallery-caption">Traditional Pelikat</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="my3.jpeg" alt="Traditional Pelikat">
+                    <div class="gallery-caption">Traditional Pelikat</div>
+                </div>
+            </div>
+            
+<div class="card-grid">
+    <div class="card">
+        <div class="card-content">
+            <h3>Soft & Comfortable</h3>
+            <p>Made from cool cotton that's perfect for hot weather.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <h3>Colorful Checks</h3>
+            <p>Bright patterns that show local culture and style.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <h3>Just Right Size</h3>
+            <p>Long enough (2-2.5m) to wear in different ways.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+    
+    <!-- History Section -->
+    <section id="history" style="background-color: var(--light);">
+<div class="section-content">
+    <h2>History of Kain Pelikat</h2>
+    <p>See how this sarong changed over time:</p>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date"><i class="fas fa-anchor"></i> 1400s-1700s</div>
+                <p>First came from India with traders. Sailors wore it for work.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date"><i class="fas fa-exchange-alt"></i> 1800s</div>
+                <p>Local makers added Malay patterns and colors.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date"><i class="fas fa-home"></i> Early 1900s</div>
+                <p>Became everyday clothing for many families.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date"><i class="fas fa-tshirt"></i> Today</div>
+                <p>Still worn traditionally, now also used in modern fashion.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+    
+    <!-- Culture Section -->
+    <section id="culture" style="background-color: var(--white);">
+<div class="section-content">
+    <h2>Why Kain Pelikat Matters</h2>
+    <p>How people use this special sarong:</p>
+    
+    <div class="card-grid">
+        <div class="card">
+            <img src="s1.png" alt="Prayer clothing">
+            <div class="card-content">
+                <h3>For Prayers</h3>
+                <p>Muslims wear it during prayer because it's simple and respectful.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="s2.png" alt="Home clothing">
+            <div class="card-content">
+                <h3>At Home</h3>
+                <p>People love wearing it at home - it's cool and comfortable.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="s4.png" alt="Special events">
+            <div class="card-content">
+                <h3>For Special Days</h3>
+                <p>Worn at weddings and festivals to show Malay culture.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+    
+<!-- How to Wear Section -->
+<section id="how-to-wear" style="background-color: var(--light);">
+    <div class="section-content">
+        <h2>Master the Art of Wearing</h2>
+        <p>Learn the proper techniques to wear your Kain Pelikat with confidence and style.</p>
+        
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Prepare the Fabric</h3>
+                <p>Unfold completely and hold horizontally behind you at waist level, ensuring equal length on both sides.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Wrap Around</h3>
+                <p>Bring both ends to the front, crossing them slightly at your waist for a secure fit.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Secure the Fold</h3>
+                <p>Roll the top edge down about 2-3 inches to create a tight, comfortable waistband that stays in place.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <button id="videoBtn" class="back-to-top"><i class="fas fa-play-circle"></i> Watch Video Tutorial</button>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <video id="kainVideo" controls>
+                <source src="kain.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        overflow: auto;
+    }
+
+    .modal-content {
+        position: relative;
+        background-color: transparent;
+        margin: 5% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 800px;
+    }
+
+    .close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: var(--accent);
+    }
+
+    #kainVideo {
+        width: 100%;
+        outline: none;
+        border-radius: 8px;
+    }
+</style>
+
+<script>
+    // Get the modal and button elements
+    const modal = document.getElementById("videoModal");
+    const btn = document.getElementById("videoBtn");
+    const video = document.getElementById("kainVideo");
+    const span = document.getElementsByClassName("close")[0];
+
+    // When user clicks the button, open modal and play video
+    btn.onclick = function() {
+        modal.style.display = "block";
+        video.play();
+    }
+
+    // When user clicks on (x), close modal and pause video
+    span.onclick = function() {
+        modal.style.display = "none";
+        video.pause();
+    }
+
+    // When user clicks anywhere outside modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            video.pause();
+        }
+    }
+</script>
+    
+    <!-- Modern Uses Section -->
+    <section id="modern" style="background-color: var(--white);">
+        <div class="section-content">
+            <h2>Contemporary Innovations</h2>
+            <p>Explore how traditional Kain Pelikat inspires modern creativity across various domains.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <img src="ss1.png" alt="Fashion">
+                    <div class="card-content">
+                        <h3>High Fashion</h3>
+                        <p>Designers incorporate pelikat patterns into modern apparel, from elegant dresses to stylish shirts.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="ss2.png" alt="Home Decor">
+                    <div class="card-content">
+                        <h3>Home Decor</h3>
+                        <p>Transformed into curtains, pillow covers, and table runners for cultural-inspired interiors.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="ss6.png" alt="Art">
+                    <div class="card-content">
+                        <h3>Artistic Medium</h3>
+                        <p>Featured in contemporary art installations and textile exhibitions worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <img src="cc.png" alt="CultureMates Logo" class="footer-logo">
+        <div class="footer-content">
+            <h3>Preserving Cultural Heritage</h3>
+            <p>Join us in celebrating the rich textile traditions of Southeast Asia</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            
+            <p>&copy; 2023 CultureMates & CultureSeekers. All rights reserved.</p>
+            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Back to top button
+            document.querySelectorAll('.back-to-top').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
